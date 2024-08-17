@@ -1,0 +1,31 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    hanami-api (0.3.0)
+      hanami-router (~> 2.0)
+    hanami-router (2.1.0)
+      mustermann (~> 3.0)
+      mustermann-contrib (~> 3.0)
+      rack (~> 2.0)
+    hansi (0.2.1)
+    mustermann (3.0.2)
+      ruby2_keywords (~> 0.0.1)
+    mustermann-contrib (3.0.2)
+      hansi (~> 0.2.0)
+      mustermann (= 3.0.2)
+    nio4r (2.7.3)
+    puma (6.4.2)
+      nio4r (~> 2.0)
+    rack (2.2.9)
+    ruby2_keywords (0.0.5)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  hanami-api (~> 0.3.0)
+  puma (~> 6.4)
+
+BUNDLED WITH
+   2.5.17

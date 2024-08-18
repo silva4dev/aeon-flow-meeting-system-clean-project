@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require_relative './src/main'
+require_relative './src/configs/server'
 
-run Main.new
+run Server.new

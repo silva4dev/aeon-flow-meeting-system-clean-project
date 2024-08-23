@@ -2,6 +2,13 @@
 
 source 'https://rubygems.org'
 
-gem 'puma', '~> 6.4'
+gem 'dry-struct'
+gem 'hanami-api'
+gem 'puma'
 
-gem 'hanami-api', '~> 0.3.0'
+group :development, :test do
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
+end

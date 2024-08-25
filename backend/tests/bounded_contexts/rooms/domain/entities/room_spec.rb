@@ -11,6 +11,7 @@ RSpec.describe Room, type: :entity do
         location: 'Room 4'
       )
 
+      expect(sut.id).not_to be_nil
       expect(sut.capacity).to eq(10)
       expect(sut.name).to eq('Conference Room')
       expect(sut.location).to eq('Room 4')

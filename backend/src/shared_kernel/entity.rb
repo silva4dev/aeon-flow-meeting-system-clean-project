@@ -3,5 +3,5 @@
 require_relative './types'
 
 class Entity < Dry::Struct
-  attribute :id, Types::Integer.optional.default(nil)
+  attribute :id, Types::String.optional.default { SecureRandom.uuid }
 end

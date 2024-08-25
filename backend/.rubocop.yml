@@ -1,2 +1,71 @@
+require:
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.3.0
+  SuggestExtensions: false
+  NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
 Style/Documentation:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Naming/PredicateName:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/ExampleWording:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/FilePath:
+  Enabled: false
+RSpec/SpecFilePathFormat:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
+Style/MixinGrouping:
+  Enabled: false
+RSpec/NoExpectationExample:
+  Enabled: false
+RSpec/BeforeAfterAll:
+  Enabled: false
+RSpec/EmptyExampleGroup:
+  Enabled: false
+RSpec/HookArgument:
+  Enabled: false
+RSpec/RepeatedExample:
+  Enabled: false
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/RedundantConditional:
+  Enabled: false
+Style/IfWithBooleanLiteralBranches:
+  Enabled: false
+RSpec/Rails/HaveHttpStatus:
+  Enabled: false
+RSpec/InstanceVariable:
+  Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
   Enabled: false

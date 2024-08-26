@@ -6,11 +6,11 @@ RSpec.describe Room, type: :entity do
   describe '#initialize' do
     context 'with valid attributes' do
       it 'creates a new room' do
-        room = Room.new(name: 'Conference', capacity: 10, location: 'Room 4')
+        sut = Room.new(name: 'Conference', capacity: 10, location: 'Room 4')
 
-        expect(room.name).to eq('Conference')
-        expect(room.capacity).to eq(10)
-        expect(room.location).to eq('Room 4')
+        expect(sut.name).to eq('Conference')
+        expect(sut.capacity).to eq(10)
+        expect(sut.location).to eq('Room 4')
       end
     end
 

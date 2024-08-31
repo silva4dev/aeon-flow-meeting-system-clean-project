@@ -9,5 +9,5 @@ export type CreateRoomRequest = {
 
 export type CreateRoomResponse = Either<null, RoomEntity>;
 
-export interface CreateRoomService
+export interface CreateRoomUseCase
   extends Service<CreateRoomRequest, CreateRoomResponse> {}

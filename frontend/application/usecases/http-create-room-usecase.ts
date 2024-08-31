@@ -2,12 +2,12 @@ import { Right } from "../../@shared/either.ts";
 import {
   CreateRoomRequest,
   CreateRoomResponse,
-  CreateRoomService,
-} from "../../domain/services/index.ts";
+  CreateRoomUseCase,
+} from "../../domain/usecases/index.ts";
 import { HttpPostClient } from "../contracts/http/http-post-client.ts";
 import { RoomEntity } from "../../domain/entities/room-entity.ts";
 
-export class HttpCreateRoomService implements CreateRoomService {
+export class HttpCreateRoomUseCase implements CreateRoomUseCase {
   private readonly url: string;
   private readonly httpPostClient: HttpPostClient<
     CreateRoomRequest,

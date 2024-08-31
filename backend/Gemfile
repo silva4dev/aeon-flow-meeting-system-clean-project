@@ -7,6 +7,7 @@ ruby '3.3.0'
 gem 'dry-struct'
 gem 'dry-types'
 gem 'dry-validation'
+gem 'dry-monads'
 gem 'hanami-api'
 gem 'puma'
 

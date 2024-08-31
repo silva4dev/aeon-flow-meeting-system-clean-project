@@ -1,3 +1,3 @@
-export interface Service<T, R> {
+export interface UseCase<T, R> {
   execute: (params: T) => Promise<R>;
 }

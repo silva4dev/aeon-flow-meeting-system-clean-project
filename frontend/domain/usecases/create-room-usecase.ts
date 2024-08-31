@@ -1,4 +1,4 @@
-import { Either, Service } from "../../@shared/index.ts";
+import { Either, UseCase } from "../../@shared/index.ts";
 import { RoomEntity } from "../entities/room-entity.ts";
 
 export type CreateRoomRequest = {
@@ -10,4 +10,4 @@ export type CreateRoomRequest = {
 export type CreateRoomResponse = Either<null, RoomEntity>;
 
 export interface CreateRoomUseCase
-  extends Service<CreateRoomRequest, CreateRoomResponse> {}
+  extends UseCase<CreateRoomRequest, CreateRoomResponse> {}

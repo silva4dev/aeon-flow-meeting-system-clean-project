@@ -2,7 +2,7 @@
 
 require 'dry-monads'
 
-class Service
+class Usecase
   include Dry::Monads[:result]
 
   def call

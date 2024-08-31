@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../validations/room_validation'
-require_relative '../../../../shared_kernel/entity'
+require_relative '../../../../@shared/entity'
 
 class Room < Entity
   attribute :name, Types::String

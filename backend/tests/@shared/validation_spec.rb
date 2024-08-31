@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/shared_kernel/validation'
+require_relative '../../src/@shared/validation'
 
 RSpec.describe Validation do
   before(:all) do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../../src/shared_kernel/types'
-require_relative '../../src/shared_kernel/value_object'
+require_relative '../../src/@shared/types'
+require_relative '../../src/@shared/value_object'
 
 RSpec.describe ValueObject do
   before(:all) do

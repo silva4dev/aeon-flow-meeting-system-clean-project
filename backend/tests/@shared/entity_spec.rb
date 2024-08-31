@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/shared_kernel/entity'
+require_relative '../../src/@shared/entity'
 
 RSpec.describe Entity do
   it 'generates a UUID by default if id is not provided' do

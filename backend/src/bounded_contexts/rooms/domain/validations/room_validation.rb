@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../shared_kernel/validation'
+require_relative '../../../../@shared/validation'
 
 class RoomValidation < Dry::Validation::Contract
   params do

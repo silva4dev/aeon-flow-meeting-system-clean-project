@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../../../shared_kernel/service'
+require_relative '../../../../@shared/usecase'
 
-class CreateRoomService < Service
+class CreateRoomUsecase < Usecase
   def call
     if true
       Success({ message: 'Room created successfully' })

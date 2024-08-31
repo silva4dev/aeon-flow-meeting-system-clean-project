@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/shared_kernel/types'
+require_relative '../../src/@shared/types'
 
 RSpec.describe Types do
   it 'includes Dry::Types module' do

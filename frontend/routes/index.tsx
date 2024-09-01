@@ -8,8 +8,8 @@ interface Data {
 }
 
 export const handler: Handlers<Data> = {
-  async POST(req, context) {
-    const formData = await req.formData();
+  async POST(request, context) {
+    const formData = await request.formData();
     const usecase = makeHttpCreateRoomUseCase()
 
     await usecase.execute({

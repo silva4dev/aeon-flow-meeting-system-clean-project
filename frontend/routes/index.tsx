@@ -1,6 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
-import { HttpCreateRoomUseCase } from "../application/usecases/http-create-room-usecase.ts";
-import { AxiosHttpClient } from "../infrastructure/http/axios-http-client.ts";
+import { makeHttpCreateRoomUseCase } from "../main/factories/usecases/http-create-room-usecase-factory.ts";
 
 interface Data {
   name: string;
@@ -11,11 +10,9 @@ interface Data {
 export const handler: Handlers<Data> = {
   async POST(req, context) {
     const formData = await req.formData();
-    const axiosHttpClient = new AxiosHttpClient();
-    const url = "https://66d3b1a85b34bcb9ab3cd860.mockapi.io/api/v1/rooms";
-    const httpClient = new HttpCreateRoomUseCase(url, axiosHttpClient);
+    const usecase = makeHttpCreateRoomUseCase()
 
-    await httpClient.execute({
+    await usecase.execute({
       name: String(formData.get("name")),
       capacity: Number(formData.get("capacity")),
       location: String(formData.get("location"))

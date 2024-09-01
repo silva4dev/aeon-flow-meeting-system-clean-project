@@ -1,0 +1,1 @@
+export const makeApiUrl = (path: string): string => `https://66d3b1a85b34bcb9ab3cd860.mockapi.io/api/v1/${path}`;

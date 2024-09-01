@@ -1,5 +1,5 @@
 export type RoomEntity = {
   name: string;
-  capicity: number;
+  capacity: number;
   location: string;
 };

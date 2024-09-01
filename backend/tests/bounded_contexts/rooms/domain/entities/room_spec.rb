@@ -2,11 +2,11 @@
 
 require_relative '../../../../../src/bounded_contexts/rooms/domain/entities/room'
 
-RSpec.describe Room, type: :entity do
+RSpec.describe Rooms::Domain::Entities::Room, type: :entity do
   describe '#initialize' do
     context 'with valid attributes' do
       it 'creates a new room' do
-        sut = Room.new(name: 'Conference', capacity: 10, location: 'Room 4')
+        sut = Rooms::Domain::Entities::Room.new(name: 'Conference', capacity: 10, location: 'Room 4')
 
         expect(sut.name).to eq('Conference')
         expect(sut.capacity).to eq(10)
@@ -17,19 +17,19 @@ RSpec.describe Room, type: :entity do
     context 'with invalid attributes' do
       it 'raises an error when name is empty' do
         expect {
-          Room.new(name: '', capacity: 10, location: 'Room 4')
+          Rooms::Domain::Entities::Room.new(name: '', capacity: 10, location: 'Room 4')
         }.to raise_error(ArgumentError, /name/)
       end
 
       it 'raises an error when capacity is negative' do
         expect {
-          Room.new(name: 'Conference Room', capacity: -1, location: 'Room 4')
+          Rooms::Domain::Entities::Room.new(name: 'Conference Room', capacity: -1, location: 'Room 4')
         }.to raise_error(ArgumentError, /capacity/)
       end
 
       it 'raises an error when location is empty' do
         expect {
-          Room.new(name: 'Conference Room', capacity: 10, location: '')
+          Rooms::Domain::Entities::Room.new(name: 'Conference Room', capacity: 10, location: '')
         }.to raise_error(ArgumentError, /location/)
       end
     end

@@ -2,10 +2,16 @@
 
 require_relative '../../../../@shared/validation'
 
-class RoomValidation < Dry::Validation::Contract
-  params do
-    required(:name).filled(:string)
-    required(:capacity).filled(:integer, gt?: 0)
-    required(:location).filled(:string)
+module Rooms
+  module Domain
+    module Validations
+      class RoomValidation < Dry::Validation::Contract
+        params do
+          required(:name).filled(:string)
+          required(:capacity).filled(:integer, gt?: 0)
+          required(:location).filled(:string)
+        end
+      end
+    end
   end
 end

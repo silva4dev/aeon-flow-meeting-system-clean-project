@@ -3,7 +3,7 @@ import { RoomEntity } from "../entities/room-entity.ts";
 
 export type CreateRoomRequest = {
   name: string;
-  capicity: number;
+  capacity: number;
   location: string;
 };
 

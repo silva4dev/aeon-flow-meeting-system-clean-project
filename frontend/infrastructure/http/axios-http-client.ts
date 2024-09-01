@@ -1,16 +1,23 @@
-import {
-  HttpPostClient,
-  HttpPostParams,
-} from "../../application/contracts/http/http-post-client.ts";
-import { HttpResponse } from "../../application/contracts/http/http-response.ts";
-import axios from "axios";
+import { HttpRequest, HttpResponse, HttpClient } from "../../@shared/index.ts";
 
-export class AxiosHttpClient implements HttpPostClient<any, any> {
-  async post(params: HttpPostParams<any>): Promise<HttpResponse<any>> {
-    const httpResponse = await axios.post(params.url, params.body);
+import axios, { AxiosResponse } from "axios";
+
+export class AxiosHttpClient implements HttpClient {
+  async request (data: HttpRequest): Promise<HttpResponse> {
+    let axiosResponse: AxiosResponse
+    try {
+      axiosResponse = await axios.request({
+        url: data.url,
+        method: data.method,
+        data: data.body,
+        headers: data.headers
+      })
+    } catch (error) {
+      axiosResponse = error.response
+    }
     return {
-      statusCode: httpResponse.status,
-      body: httpResponse.data,
-    };
+      statusCode: axiosResponse.status,
+      body: axiosResponse.data
+    }
   }
 }

@@ -7,7 +7,7 @@ module Rooms
     module Database
       module Cassandra
         class CassandraRoomRepository < Rooms::Application::Repositories::RoomRepository
-          def add(task)
+          def add(room)
             { id: 1, name: 'Conference', capacity: 10, location: 'Room 4' }
           end
         end

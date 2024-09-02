@@ -4,7 +4,7 @@ module Rooms
   module Application
     module Repositories
       class RoomRepository
-        def add(task)
+        def add(room)
           raise NotImplementedError
         end
       end

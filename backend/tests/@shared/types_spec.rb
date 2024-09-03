@@ -3,7 +3,9 @@
 require_relative '../../src/@shared/types'
 
 RSpec.describe Types do
+  subject(:sut) { Types }
+
   it 'includes Dry::Types module' do
-    expect(Types).to respond_to(:Constructor)
+    expect(sut).to respond_to(:Constructor)
   end
 end

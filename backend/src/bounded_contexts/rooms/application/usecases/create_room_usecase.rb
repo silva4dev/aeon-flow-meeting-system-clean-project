@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../app_container'
-require_relative '../../../../@shared/usecase'
+require_relative "../../app_container"
+require_relative "../../../../@shared/usecase"
+require_relative "../../domain/entities/room"
 
 module Rooms
   module Application
@@ -9,14 +10,16 @@ module Rooms
       class CreateRoomUsecase < Usecase
         include Rooms::AppContainer::Inject[room_repository: "rooms.room_repository"]
 
-        def call
-          result = room_repository.add('Instance of Room Entity')
+        def call(input)
+          room = Domain::Entities::Room.new(
+            name: input[:name],
+            capacity: input[:capacity],
+            location: input[:location],
+          )
 
-          if result.any?
-            Success({ message: 'Successfully created room' })
-          else
-            Failure({ message: 'Failed to create room' })
-          end
+          result = room_repository.add(room)
+
+          Success(result)
         end
       end
     end

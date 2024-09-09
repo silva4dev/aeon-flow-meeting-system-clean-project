@@ -1,11 +1,11 @@
-import { Right } from "../../@shared/either.ts";
+import { Right } from "../../shared_domain/either.ts";
 import {
   CreateRoomRequest,
   CreateRoomResponse,
   CreateRoomUseCase,
 } from "../../domain/usecases/index.ts";
 import { RoomEntity } from "../../domain/entities/room-entity.ts";
-import { HttpClient } from "../../@shared/http-client.ts";
+import { HttpClient } from "../../shared_domain/http-client.ts";
 
 export class HttpCreateRoomUseCase implements CreateRoomUseCase {
   private readonly url: string;

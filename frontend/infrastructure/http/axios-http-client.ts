@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse, HttpClient } from "../../@shared/index.ts";
+import { HttpRequest, HttpResponse, HttpClient } from "../../shared_domain/index.ts";
 
 import axios, { AxiosResponse } from "axios";
 

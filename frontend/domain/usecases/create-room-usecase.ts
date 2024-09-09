@@ -1,4 +1,4 @@
-import { Either, UseCase } from "../../@shared/index.ts";
+import { Either, UseCase } from "../../shared_domain/index.ts";
 import { RoomEntity } from "../entities/room-entity.ts";
 
 export type CreateRoomRequest = {

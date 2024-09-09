@@ -12,7 +12,7 @@ gem 'dry-auto_inject'
 gem 'dry-monads'
 gem 'hanami-api'
 gem 'puma'
-gem 'cassandra-driver'
+gem 'pg'
 
 group :development, :test do
   gem 'rspec'

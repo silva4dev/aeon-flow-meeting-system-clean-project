@@ -1,20 +1,15 @@
 version: '3'
 
 services:
-  cassandra:
-    image: cassandra:latest
-    container_name: cassandra
+  postgres:
+    container_name: pg_container
+    image: postgres:latest
+    restart: always
     ports:
-      - "9042:9042"
+      - '5432:5432'
     environment:
-      - CASSANDRA_CLUSTER_NAME=CassandraCluster
-      - CASSANDRA_NUM_TOKENS=256
-      - CASSANDRA_SEEDS=cassandra
-      - CASSANDRA_DC=DC1
-      - CASSANDRA_RACK=RACK1
-      - CASSANDRA_ENDPOINT_SNITCH=SimpleSnitch
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
     volumes:
-      - cassandra_data:/var/lib/cassandra
-
-volumes:
-  cassandra_data:
+      - ./data:/var/lib/postgresql/data

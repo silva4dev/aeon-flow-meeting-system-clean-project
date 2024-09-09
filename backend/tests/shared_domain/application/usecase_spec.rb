@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../src/@shared/usecase'
+require_relative '../../../src/shared_domain/application/usecase'
 
-RSpec.describe Usecase do
+RSpec.describe SharedDomain::Application::Usecase do
   before(:all) do
-    class UsecaseFake < Usecase
+    class UsecaseFake < SharedDomain::Application::Usecase
       def call(success: true)
         success ? Dry::Monads::Success('Operation was successful') : Dry::Monads::Failure('Operation failed')
       end

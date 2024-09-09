@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 require 'dry-auto_inject'
-require_relative '../../@shared/container'
-require_relative './infrastructure/repositories/cassandra_room_repository'
+require_relative '../../shared_domain/container'
+require_relative './infrastructure/repositories/pg_room_repository'
 
 module Rooms
-  class AppContainer < Container
+  class AppContainer < SharedDomain::Container
     namespace :rooms do
       register(:room_repository) {
-        Infrastructure::Repositories::CassandraRoomRepository.new
+        Infrastructure::Repositories::PgRoomRepository.new
       }
     end
 

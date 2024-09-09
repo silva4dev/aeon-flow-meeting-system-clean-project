@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require_relative '../../app_container'
-require_relative '../../../../@shared/usecase'
+require_relative '../../../../shared_domain/usecase'
 require_relative '../../domain/entities/room'
 
 module Rooms
   module Application
     module Usecases
-      class CreateRoomUsecase < Usecase
+      class CreateRoomUsecase < SharedDomain::Application::Usecase
         include Rooms::AppContainer::Inject[room_repository: 'rooms.room_repository']
 
         def call(input)

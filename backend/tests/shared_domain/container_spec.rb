@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../../src/@shared/container'
+require_relative '../../src/shared_domain/container'
 
-RSpec.describe Container do
-  subject(:sut) { Container }
+RSpec.describe SharedDomain::Container do
+  subject(:sut) { SharedDomain::Container }
 
   it 'extends Dry::Container module' do
     expect(sut).to be_a(Dry::Container::Mixin)

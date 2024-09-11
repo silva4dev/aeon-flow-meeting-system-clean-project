@@ -32,8 +32,8 @@ module SharedDomain
         @pg_connection = nil
       end
 
-      def execute(query, params = [])
-        connect unless connected?
+      def execute(query, params)
+        connect(**@connection_params) unless connected?
         @pg_connection.exec_params(query, params)
       end
 

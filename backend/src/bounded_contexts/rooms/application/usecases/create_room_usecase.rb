@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../../app_container'
-require_relative '../../../../shared_domain/usecase'
+require_relative '../../../shared_domain/application/usecase'
 require_relative '../../domain/entities/room'
 
 module Rooms

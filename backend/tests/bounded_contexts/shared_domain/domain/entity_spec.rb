@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../src/shared_domain/domain/entity'
+require_relative '../../../../src/bounded_contexts/shared_domain/domain/entity'
 
 RSpec.describe SharedDomain::Domain::Entity do
   it 'generates a UUID by default if id is not provided' do

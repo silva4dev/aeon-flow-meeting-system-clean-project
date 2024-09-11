@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../../application/repositories/room_repository'
-require_relative '../../../../shared_domain/infrastructure/pg_persistence_helper'
+require_relative '../../../shared_domain/infrastructure/pg_persistence_helper'
 
 module Rooms
   module Infrastructure

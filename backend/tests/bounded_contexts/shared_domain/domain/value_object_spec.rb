@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../../../src/shared_domain/domain/types'
-require_relative '../../../src/shared_domain/domain/value_object'
+require_relative '../../../../src/bounded_contexts/shared_domain/domain/types'
+require_relative '../../../../src/bounded_contexts/shared_domain/domain/value_object'
 
 RSpec.describe SharedDomain::Domain::ValueObject do
   before(:all) do

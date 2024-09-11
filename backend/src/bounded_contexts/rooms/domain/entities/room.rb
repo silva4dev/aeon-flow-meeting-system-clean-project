@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../validations/room_validation'
-require_relative '../../../../shared_domain/domain/entity'
+require_relative '../../../shared_domain/domain/entity'
 
 module Rooms
   module Domain

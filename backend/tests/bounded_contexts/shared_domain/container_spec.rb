@@ -10,9 +10,9 @@ RSpec.describe SharedDomain::Container do
   end
 
   it 'can register and resolve dependencies' do
-    sut.register(:example_service) { "Example Service" }
+    sut.register(:example_service) { 'Example Service' }
 
-    expect(sut.resolve(:example_service)).to eq("Example Service")
+    expect(sut.resolve(:example_service)).to eq('Example Service')
   end
 
   it 'raises an error when resolving an unregistered dependency' do

@@ -4,7 +4,11 @@ module Rooms
   module Application
     module Repositories
       class RoomRepository
-        def add(room)
+        def add(entity)
+          raise NotImplementedError
+        end
+
+        def all
           raise NotImplementedError
         end
       end

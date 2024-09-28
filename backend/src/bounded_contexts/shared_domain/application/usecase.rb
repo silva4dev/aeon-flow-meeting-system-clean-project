@@ -10,7 +10,7 @@ module SharedDomain
 
       include Dry::Monads[:result]
 
-      def call
+      def call(input = {})
         raise NotImplementedError
       end
     end

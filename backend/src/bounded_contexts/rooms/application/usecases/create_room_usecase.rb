@@ -17,7 +17,7 @@ module Rooms
             location: input[:location],
           )
 
-          result = room_repository.add(room)
+          room_repository.add(room)
 
           Success(room)
         end

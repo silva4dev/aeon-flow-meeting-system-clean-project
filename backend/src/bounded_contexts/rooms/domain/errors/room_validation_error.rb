@@ -4,8 +4,8 @@ module Rooms
   module Domain
     module Errors
       class RoomValidationError < StandardError
-        def initialize(errors)
-          super("Room validation failed: #{errors}")
+        def initialize(messages)
+          super("Room validation failed: #{messages}")
         end
       end
     end

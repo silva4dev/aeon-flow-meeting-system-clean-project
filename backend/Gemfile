@@ -10,9 +10,10 @@ gem 'dry-validation'
 gem 'dry-container'
 gem 'dry-auto_inject'
 gem 'dry-monads'
-gem 'hanami-api'
 gem 'puma'
-gem 'pg'
+gem 'rom'
+gem 'rom-sql'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec'

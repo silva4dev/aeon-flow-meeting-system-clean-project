@@ -2,6 +2,7 @@
 
 require_relative '../validations/room_validation'
 require_relative '../../../shared_domain/domain/entity'
+require_relative '../errors/room_validation_error'
 
 module Rooms
   module Domain
@@ -13,7 +14,7 @@ module Rooms
 
         def initialize(attributes)
           room_validation = Validations::RoomValidation.new.call(attributes)
-          raise ArgumentError, room_validation.errors.to_h unless room_validation.success?
+          raise Errors::RoomValidationError.new(room_validation.errors.to_h) unless room_validation.success?
           super(attributes)
         end
       end

@@ -10,7 +10,7 @@ module Rooms
       class CreateRoomUsecase < SharedDomain::Application::Usecase
         include Rooms::AppContainer::Inject[room_repository: 'rooms.room_repository']
 
-        def call(input)
+        def call(input = {})
           room = Domain::Entities::Room.new(
             name: input[:name],
             capacity: input[:capacity],
@@ -19,7 +19,7 @@ module Rooms
 
           result = room_repository.add(room)
 
-          Success(result)
+          Success(room)
         end
       end
     end

@@ -5,31 +5,22 @@ require_relative '../../../../src/bounded_contexts/shared_domain/domain/value_ob
 
 RSpec.describe SharedDomain::Domain::ValueObject do
   before(:all) do
-    class ValueObjectFake < SharedDomain::Domain::ValueObject
-      attribute :name, SharedDomain::Domain::Types::String
-      attribute :age, SharedDomain::Domain::Types::Integer
+    class CpfFake < SharedDomain::Domain::ValueObject
+      attribute :value, SharedDomain::Domain::Types::String
     end
   end
 
   context 'when initialized with valid attributes' do
-    let(:sut) { ValueObjectFake.new(name: 'John Doe', age: 20) }
+    let(:sut) { CpfFake.new(value: '142.432.132-12') }
 
-    it 'has the correct name' do
-      expect(sut.name).to eq('John Doe')
-    end
-
-    it 'has the correct age' do
-      expect(sut.age).to eq(20)
+    it 'has the correct value' do
+      expect(sut.value).to eq('142.432.132-12')
     end
   end
 
   context 'when initialized with invalid attributes' do
-    it 'raises an error for missing name' do
-      expect { ValueObjectFake.new(age: 30) }.to raise_error(Dry::Struct::Error, /:name is missing/)
-    end
-
-    it 'raises an error for missing age' do
-      expect { ValueObjectFake.new(name: 'John Doe') }.to raise_error(Dry::Struct::Error, /:age is missing/)
+    it 'raises an error for missing value' do
+      expect { CpfFake.new }.to raise_error(Dry::Struct::Error, /:value is missing/)
     end
   end
 end

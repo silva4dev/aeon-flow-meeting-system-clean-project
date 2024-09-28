@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../../../../src/bounded_contexts/shared_domain/domain/uuid_value_object'
+require_relative '../../../../../src/bounded_contexts/shared_domain/domain/value_objects/uuid_value_object'
+require_relative '../../../../../src/bounded_contexts/shared_domain/domain/errors/invalid_uuid_error'
 
-RSpec.describe SharedDomain::Domain::UuidValueObject do
+RSpec.describe SharedDomain::Domain::ValueObjects::UuidValueObject do
   let(:valid_uuid) { SecureRandom.uuid }
   let(:invalid_uuid) { 'invalid-uuid' }
 
@@ -24,7 +25,7 @@ RSpec.describe SharedDomain::Domain::UuidValueObject do
 
     context 'when initialized with an invalid UUID' do
       it 'raises an ArgumentError' do
-        expect { described_class.new(value: invalid_uuid) }.to raise_error(ArgumentError, 'Invalid UUID format')
+        expect { described_class.new(value: invalid_uuid) }.to raise_error(SharedDomain::Domain::Errors::InvalidUuidError, 'Invalid UUID format')
       end
     end
   end

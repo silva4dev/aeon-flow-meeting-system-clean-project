@@ -2,13 +2,13 @@
 
 require 'dry-auto_inject'
 require_relative '../shared_domain/container'
-require_relative './infrastructure/repositories/pg_room_repository'
+require_relative './infrastructure/repositories/sqlite_room_repository'
 
 module Rooms
   class AppContainer < SharedDomain::Container
     namespace :rooms do
       register(:room_repository) {
-        Infrastructure::Repositories::PgRoomRepository.new
+        Infrastructure::Repositories::SqliteRoomRepository.new
       }
     end
 

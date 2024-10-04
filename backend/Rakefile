@@ -89,4 +89,15 @@ namespace :db do
     end
     puts "Schema generated at #{schema_path}"
   end
+
+  desc 'Run seeds'
+  task :seed do
+    seed_file = './src/database/seeds.rb'
+    if File.exist?(seed_file)
+      load seed_file
+      puts 'Seeds loaded successfully.'
+    else
+      puts 'No seed file found.'
+    end
+  end
 end

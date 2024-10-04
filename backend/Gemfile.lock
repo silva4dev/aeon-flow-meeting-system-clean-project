@@ -150,6 +150,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rspec
+  sequel
   sqlite3
 
 RUBY VERSION

@@ -1,3 +1,90 @@
 # frozen_string_literal: true
 
-require 'rom/sql/rake_task'
+require 'sequel'
+require 'fileutils'
+
+environment = ENV['ENVIRONMENT'] || 'development'
+DB_PATH = "./src/database/database_#{environment}.sqlite3"
+DB = Sequel.sqlite(DB_PATH)
+
+namespace :db do
+  desc 'Create SQLite database'
+  task :create do
+    if File.exist?(DB_PATH)
+      puts "Database already exists at #{DB_PATH}"
+    else
+      FileUtils.touch(DB_PATH)
+      puts "Database created at #{DB_PATH}"
+    end
+  end
+
+  desc 'Drop SQLite database'
+  task :drop do
+    if File.exist?(DB_PATH)
+      File.delete(DB_PATH)
+      puts "Database deleted at #{DB_PATH}"
+    else
+      puts "No database found at #{DB_PATH}"
+    end
+  end
+
+  desc 'Run migrations'
+  task :migrate do
+    Sequel.extension :migration
+    Sequel::Migrator.run(DB, './src/database/migrations')
+    puts "Migrations ran successfully."
+    Rake::Task["db:generate_schema"].invoke
+  end
+
+  desc 'Create a new migration with a version number'
+  task :create_migration, [:name] do |_t, args|
+    raise 'Migration name is required!' unless args[:name]
+
+    migration_name = args[:name].strip.gsub(/\s+/, '_')
+    version = Time.now.utc.strftime('%Y%m%d%H%M%S')
+    full_migration_name = "#{version}_#{migration_name}.rb"
+    migration_file_path = File.join('./src/database/migrations', full_migration_name)
+
+    FileUtils.mkdir_p('./src/database/migrations')
+    File.open(migration_file_path, 'w') do |file|
+      file.write <<~MIGRATION
+        # frozen_string_literal: true
+
+        Sequel.migration do
+          up do
+          end
+
+          down do
+          end
+        end
+      MIGRATION
+    end
+    puts "Migration created at #{migration_file_path}"
+  end
+
+  desc 'Rollback last migration'
+  task :rollback do
+    Sequel.extension :migration
+    Sequel::Migrator.run(DB, './src/database/migrations', target: DB.tables.size - 1)
+    puts "Last migration rolled back."
+    Rake::Task["db:generate_schema"].invoke
+  end
+
+  desc 'Generate schema file'
+  task :generate_schema do
+    schema_path = "./src/database/structure_#{environment}.sql"
+    File.open(schema_path, 'w') do |file|
+      DB.tables.each do |table|
+        file.puts "CREATE TABLE #{table} ("
+        DB.schema(table).each do |column|
+          column_name, column_details = column
+          column_type = column_details[:db_type]
+          file.puts "  #{column_name} #{column_type},"
+        end
+        file.puts ");"
+        file.puts ""
+      end
+    end
+    puts "Schema generated at #{schema_path}"
+  end
+end

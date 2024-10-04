@@ -65,6 +65,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rainbow (3.1.1)
+    rake (13.2.1)
     regexp_parser (2.9.2)
     rom (5.3.2)
       rom-changeset (~> 5.3, >= 5.3.0)
@@ -144,6 +145,7 @@ DEPENDENCIES
   dry-types
   dry-validation
   puma
+  rake
   rom
   rom-sql
   rspec

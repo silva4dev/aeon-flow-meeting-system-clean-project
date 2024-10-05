@@ -147,6 +147,7 @@ DEPENDENCIES
   puma
   rake
   rom
+  rom-repository
   rom-sql
   rspec
   rubocop

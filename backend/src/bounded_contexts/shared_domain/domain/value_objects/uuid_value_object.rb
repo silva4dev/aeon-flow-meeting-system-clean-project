@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
-require 'dry-struct'
+require 'uuid'
 
 require_relative '../value_object'
+require_relative '../types'
 require_relative '../errors/invalid_uuid_error'
 
 module SharedDomain
   module Domain
     module ValueObjects
       class UuidValueObject < ValueObject
-        attribute :value, Types::String.optional
+        attribute :value, SharedDomain::Domain::Types::String.optional.default(nil)
 
         def initialize(attributes = {})
-          attributes[:value] ||= SecureRandom.uuid
+          attributes[:value] ||= UUID.new.generate
           super(attributes)
           raise Errors::InvalidUuidError.new('Invalid UUID format') unless valid_uuid?(value)
         end

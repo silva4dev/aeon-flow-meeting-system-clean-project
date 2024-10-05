@@ -17,6 +17,7 @@ gem 'rom-sql'
 gem 'rom-repository'
 gem 'sqlite3'
 gem 'sequel'
+gem 'uuid'
 
 group :development, :test do
   gem 'rspec'
@@ -24,4 +25,3 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
 end
-

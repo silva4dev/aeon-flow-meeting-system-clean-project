@@ -2,6 +2,7 @@
 
 require_relative '../../../shared_domain/infrastructure/mapper'
 require_relative '../../domain/entities/room_entity'
+require_relative '../../../shared_domain/domain/value_objects/uuid_value_object'
 
 module Rooms
   module Infrastructure
@@ -9,7 +10,7 @@ module Rooms
       class RoomMapper < SharedDomain::Infrastructure::Mapper
         def self.to_entity(dao)
           Domain::Entities::Room.new(
-            id: dao[:id],
+            id: dao[:id].is_a?(String) ? SharedDomain::Domain::ValueObjects::UuidValueObject.new(value: dao[:id]) : dao[:id],
             name: dao[:name],
             capacity: dao[:capacity],
             location: dao[:location]

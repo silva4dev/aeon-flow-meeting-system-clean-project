@@ -22,7 +22,7 @@ module Rooms
         end
 
         def find_all
-          @rooms.to_a.map { |room| Mappers::RoomMapper.to_dao(room) }
+          @rooms.to_a.map { |room| to_dao(room) }
         end
 
         private

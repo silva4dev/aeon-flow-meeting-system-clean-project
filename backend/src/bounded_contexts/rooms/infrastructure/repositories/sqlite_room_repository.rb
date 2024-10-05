@@ -8,7 +8,8 @@ module Rooms
     module Repositories
       class SqliteRoomRepository < Rooms::Application::Repositories::RoomRepository
         def initialize(rom)
-          @rooms = rom.relations[:rooms]
+          @rom = rom
+          @rooms = @rom.relations[:rooms]
         end
 
         def add(entity)
@@ -20,8 +21,18 @@ module Rooms
           )
         end
 
-        def all
-         @rooms.to_a.map { |room| Mappers::RoomMapper.to_dao(room) }
+        def find_all
+          @rooms.to_a.map { |room| Mappers::RoomMapper.to_dao(room) }
+        end
+
+        private
+
+        def to_entity(dao)
+          Mappers::RoomMapper.to_entity(dao)
+        end
+
+        def to_dao(entity)
+          Mappers::RoomMapper.to_dao(entity)
         end
       end
     end

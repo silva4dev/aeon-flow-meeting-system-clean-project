@@ -8,7 +8,7 @@ module Rooms
           raise NotImplementedError
         end
 
-        def all
+        def find_all
           raise NotImplementedError
         end
       end

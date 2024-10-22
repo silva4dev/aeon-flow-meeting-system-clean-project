@@ -5,7 +5,7 @@ require 'rom'
 require 'rom-sql'
 require 'rom-repository'
 
-module Cmd
+module External
   module Config
     class Rom
       attr_reader :container, :db

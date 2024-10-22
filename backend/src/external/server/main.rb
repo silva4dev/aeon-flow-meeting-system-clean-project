@@ -2,7 +2,7 @@
 
 require 'hanami/api'
 
-module Cmd
+module External
   module Server
     class Main < Hanami::API
       get '/' do

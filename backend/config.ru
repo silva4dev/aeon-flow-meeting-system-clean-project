@@ -1,3 +1,3 @@
-require_relative './src/cmd/server/main'
+require_relative './src/external/server/main'
 
-run Cmd::Server::Main.new
+run External::Server::Main.new

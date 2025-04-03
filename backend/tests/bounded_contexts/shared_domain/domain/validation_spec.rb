@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../src/bounded_contexts/shared_domain/domain/validation'
+require_relative '../../../../src/lib/shared_domain/domain/validation'
 
 RSpec.describe SharedDomain::Domain::Validation do
   before(:all) do

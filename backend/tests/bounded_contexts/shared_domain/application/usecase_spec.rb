@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../src/bounded_contexts/shared_domain/application/usecase'
+require_relative '../../../../src/lib/shared_domain/application/usecase'
 
 RSpec.describe SharedDomain::Application::Usecase do
   before(:all) do

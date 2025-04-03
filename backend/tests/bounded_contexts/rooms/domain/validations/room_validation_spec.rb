@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../../src/bounded_contexts/rooms/domain/validations/room_validation'
+require_relative '../../../../../src/lib/rooms/domain/validations/room_validation'
 
 RSpec.describe Rooms::Domain::Validations::RoomValidation do
   subject(:validator) { described_class.new }

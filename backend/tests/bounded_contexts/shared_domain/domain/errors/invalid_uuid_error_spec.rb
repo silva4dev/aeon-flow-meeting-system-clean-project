@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../../src/bounded_contexts/shared_domain/domain/errors/invalid_uuid_error'
+require_relative '../../../../../src/lib/shared_domain/domain/errors/invalid_uuid_error'
 
 RSpec.describe SharedDomain::Domain::Errors::InvalidUuidError do
   describe '#initialize' do

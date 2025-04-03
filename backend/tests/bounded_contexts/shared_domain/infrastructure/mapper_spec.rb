@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../../../../src/bounded_contexts/shared_domain/infrastructure/mapper'
-require_relative '../../../../src/bounded_contexts/shared_domain/domain/entity'
+require_relative '../../../../src/lib/shared_domain/infrastructure/mapper'
+require_relative '../../../../src/lib/shared_domain/domain/entity'
 
 RSpec.describe SharedDomain::Infrastructure::Mapper do
   before(:all) do

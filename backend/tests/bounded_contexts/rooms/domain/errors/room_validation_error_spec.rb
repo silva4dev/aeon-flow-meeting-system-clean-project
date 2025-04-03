@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../../src/bounded_contexts/rooms/domain/errors/room_validation_error'
+require_relative '../../../../../src/lib/rooms/domain/errors/room_validation_error'
 
 RSpec.describe Rooms::Domain::Errors::RoomValidationError do
   let(:errors) { { name: ["can't be blank"], capacity: ["must be greater than 0"] } }

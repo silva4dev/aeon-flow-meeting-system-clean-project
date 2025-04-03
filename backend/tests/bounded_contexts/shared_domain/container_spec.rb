@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../src/bounded_contexts/shared_domain/container'
+require_relative '../../../src/lib/shared_domain/container'
 
 RSpec.describe SharedDomain::Container do
   subject(:sut) { SharedDomain::Container }

@@ -21,6 +21,7 @@ gem 'uuid'
 gem 'hanami-api'
 
 group :development, :test do
+  gem 'debug'
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-performance'

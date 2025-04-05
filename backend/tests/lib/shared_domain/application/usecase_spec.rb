@@ -2,9 +2,9 @@
 
 require_relative '../../../../src/lib/shared_domain/application/usecase'
 
-RSpec.describe SharedDomain::Application::Usecase do
+RSpec.describe SharedDomain::Application::UseCase do
   before(:all) do
-    class UsecaseFake < SharedDomain::Application::Usecase
+    class UsecaseFake < SharedDomain::Application::UseCase
       def call(success: true)
         success ? Dry::Monads::Success('Operation was successful') : Dry::Monads::Failure('Operation failed')
       end

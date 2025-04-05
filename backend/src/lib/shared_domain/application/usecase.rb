@@ -4,7 +4,7 @@ require 'dry-monads'
 
 module SharedDomain
   module Application
-    class Usecase
+    class UseCase
       # Use cases help capture the functional requirements of a system and understand
       # the desired behavior of the software from the user's perspective.
 

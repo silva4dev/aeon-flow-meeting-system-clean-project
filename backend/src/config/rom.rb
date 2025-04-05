@@ -15,6 +15,10 @@ module Config
       @container = setup_rom
     end
 
+    def [](relation_name)
+      @container.relations[relation_name]
+    end
+
     private
 
     def setup_database

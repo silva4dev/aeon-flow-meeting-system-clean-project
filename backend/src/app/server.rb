@@ -14,8 +14,6 @@ module App
         end
 
         post "/task" do
-          binding.break
-
           task = params
           list_tasks << task
           json task

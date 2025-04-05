@@ -9,12 +9,12 @@ module Rooms
       class SqliteRoomRepository < Rooms::Application::Repositories::RoomRepository
         def initialize(rom)
           @rom = rom
-          @rooms = @rom.relations[:rooms]
+          @rooms = @rom[:rooms]
         end
 
         def add(entity)
           @rooms.command(:create).call(
-            id: entity.id,
+            id: entity.id.value,
             name: entity.name,
             capacity: entity.capacity,
             location: entity.location

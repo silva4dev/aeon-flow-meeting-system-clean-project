@@ -2,4 +2,6 @@ node_modules/
 coverage/
 data/
 .env
+.idea
+.vscode
 /src/database/database_*.sqlite3

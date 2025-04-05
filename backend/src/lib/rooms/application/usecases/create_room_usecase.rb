@@ -2,19 +2,19 @@
 
 require_relative '../../app_container'
 require_relative '../../../shared_domain/application/usecase'
-require_relative '../../domain/entities/room'
+require_relative '../../domain/entities/room_entity'
 
 module Rooms
   module Application
-    module Usecases
-      class CreateRoomUsecase < SharedDomain::Application::Usecase
+    module UseCases
+      class CreateRoomUseCase < SharedDomain::Application::UseCase
         include Rooms::AppContainer::Inject[room_repository: 'rooms.room_repository']
 
-        def call(input = {})
+        def call(input_dto = {})
           room = Domain::Entities::Room.new(
-            name: input[:name],
-            capacity: input[:capacity],
-            location: input[:location],
+            name: input_dto[:name],
+            capacity: input_dto[:capacity],
+            location: input_dto[:location],
           )
 
           room_repository.add(room)

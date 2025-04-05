@@ -1,3 +1,12 @@
-require_relative './src/server/main'
+# frozen_string_literal: true
 
-run Server::Main.new
+require 'bundler/setup'
+require 'debug'
+require 'hanami/api'
+require 'hanami/middleware/body_parser'
+
+require_relative './src/app/server'
+
+use Hanami::Middleware::BodyParser, [:json]
+
+run App::Server.new

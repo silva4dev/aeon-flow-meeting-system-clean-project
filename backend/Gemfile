@@ -18,6 +18,7 @@ gem 'rom-repository'
 gem 'sqlite3'
 gem 'sequel'
 gem 'uuid'
+gem 'hanami-api'
 
 group :development, :test do
   gem 'rspec'

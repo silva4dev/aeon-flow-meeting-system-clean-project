@@ -52,12 +52,24 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
+    hanami-api (0.3.0)
+      hanami-router (~> 2.0)
+    hanami-router (2.2.0)
+      mustermann (~> 3.0)
+      mustermann-contrib (~> 3.0)
+      rack (~> 2.0)
+    hansi (0.2.1)
     ice_nine (0.11.2)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
     macaddr (1.7.2)
       systemu (~> 2.6.5)
     mini_portile2 (2.8.7)
+    mustermann (3.0.3)
+      ruby2_keywords (~> 0.0.1)
+    mustermann-contrib (3.0.3)
+      hansi (~> 0.2.0)
+      mustermann (= 3.0.3)
     nio4r (2.7.3)
     parallel (1.26.3)
     parser (3.3.5.0)
@@ -66,6 +78,7 @@ GEM
     puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
+    rack (2.2.13)
     rainbow (3.1.1)
     rake (13.2.1)
     regexp_parser (2.9.2)
@@ -126,6 +139,7 @@ GEM
     rubocop-rspec (3.0.5)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
     sequel (5.84.0)
       bigdecimal
     sqlite3 (2.1.0)
@@ -149,6 +163,7 @@ DEPENDENCIES
   dry-struct
   dry-types
   dry-validation
+  hanami-api
   puma
   rake
   rom

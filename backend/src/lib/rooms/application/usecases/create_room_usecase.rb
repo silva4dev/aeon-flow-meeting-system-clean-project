@@ -8,7 +8,9 @@ module Rooms
   module Application
     module UseCases
       class CreateRoomUseCase < SharedDomain::Application::UseCase
-        include Rooms::AppContainer::Inject[room_repository: 'rooms.room_repository']
+        def initialize
+          @room_repository = Rooms::AppContainer.resolve('rooms.room_repository')
+        end
 
         def call(input_dto = {})
           room = Domain::Entities::Room.new(
@@ -17,7 +19,7 @@ module Rooms
             location: input_dto[:location],
           )
 
-          room_repository.add(room)
+          @room_repository.add(room)
 
           Success(room)
         end

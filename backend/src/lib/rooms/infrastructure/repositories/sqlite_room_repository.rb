@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative '../../app_container'
 require_relative '../../application/repositories/room_repository'
 require_relative '../mappers/room_mapper'
 
@@ -7,13 +8,12 @@ module Rooms
   module Infrastructure
     module Repositories
       class SqliteRoomRepository < Rooms::Application::Repositories::RoomRepository
-        def initialize(rom)
-          @rom = rom
-          @rooms = @rom[:rooms]
+        def initialize
+          @rom = Rooms::AppContainer.resolve('config.rom')
         end
 
         def add(entity)
-          @rooms.command(:create).call(
+          @rom[:rooms].command(:create).call(
             id: entity.id.value,
             name: entity.name,
             capacity: entity.capacity,
@@ -22,7 +22,7 @@ module Rooms
         end
 
         def find_all
-          @rooms.to_a.map { |room| to_dao(room) }
+          @rom[:rooms].to_a.map { |room| to_dao(room) }
         end
 
         private

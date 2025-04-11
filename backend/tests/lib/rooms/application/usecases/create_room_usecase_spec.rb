@@ -16,20 +16,20 @@ RSpec.describe Rooms::Application::UseCases::CreateRoomUseCase do
   describe '#call' do
     context 'with valid input data' do
       before do
-        allow(room_repository).to receive(:add).with(instance_of(Rooms::Domain::Entities::Room)).and_return(nil)
+        allow(room_repository).to receive(:add).with(instance_of(Rooms::Domain::Entities::Room))
       end
 
       it 'creates a new room successfully' do
-        result = use_case.call({
+        sut = use_case.call({
            name: 'Conference',
            capacity: 10,
            location: 'Room 4'
         })
 
-        expect(result).to be_success
-        expect(result.value!.name).to eq('Conference')
-        expect(result.value!.capacity).to eq(10)
-        expect(result.value!.location).to eq('Room 4')
+        expect(sut).to be_success
+        expect(sut.value!.name).to eq('Conference')
+        expect(sut.value!.capacity).to eq(10)
+        expect(sut.value!.location).to eq('Room 4')
       end
     end
   end

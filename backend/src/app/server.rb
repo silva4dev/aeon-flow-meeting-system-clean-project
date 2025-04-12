@@ -1,34 +1,20 @@
 # frozen_string_literal: true
 
-require_relative '../lib/rooms/application/usecases/create_room_usecase'
+require_relative 'middlewares/cors'
+require_relative 'middlewares/content_type'
+require_relative 'middlewares/accept'
+require_relative 'routes/api/v1/rooms_routes'
 
 module App
   class Server < Hanami::API
-    scope "api" do
-      scope "v1" do
-        post "/rooms" do
-          input_dto = {
-            name: params[:name],
-            capacity: params[:capacity],
-            location: params[:location]
-          }
-
-          result = Rooms::Application::UseCases::CreateRoomUseCase.new.call(input_dto)
-
-          if result.success?
-            status 201
-            json({
-              id: result.value!.id.value,
-              name: result.value!.name,
-              capacity: result.value!.capacity,
-              location: result.value!.location
-            })
-          else
-            status 422
-            json(error: "Fail to create room.")
-          end
-        end
-      end
+    def call(env)
+      status, headers, body = super(env)
+      App::Middlewares::Cors.call(headers)
+      App::Middlewares::Accept.call(headers)
+      App::Middlewares::ContentType.call(headers)
+      [status, headers, body]
     end
+
+    App::Routes::API::V1::RoomsRoutes.register(self)
   end
 end

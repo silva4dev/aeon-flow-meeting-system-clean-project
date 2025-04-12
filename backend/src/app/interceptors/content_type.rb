@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module App
-  module Middlewares
+  module Interceptors
     class ContentType
       def self.call(headers)
         headers['Content-Type'] = 'application/json'

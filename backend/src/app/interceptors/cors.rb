@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module App
-  module Middlewares
+  module Interceptors
     class Cors
       def self.call(headers)
         headers['Access-Control-Allow-Origin'] = '*'

@@ -14,24 +14,25 @@ module App
               app.post '/rooms' do
                 input = {
                   name: params[:name],
-                  capacity: params[:capacity],
+                  capacity: params[:capacity].to_i,
                   location: params[:location]
                 }
 
-                result = Rooms::Application::UseCases::CreateRoomUseCase.new.call(input)
+                Rooms::Application::UseCases::CreateRoomUseCase.new.call(input) do |m|
+                  m.success do |room|
+                    status 201
+                    json(
+                      id: room.id.value,
+                      name: room.name,
+                      capacity: room.capacity,
+                      location: room.location
+                    )
+                  end
 
-                if result.success?
-                  room = result.value!
-                  status 201
-                  json(
-                    id: room.id.value,
-                    name: room.name,
-                    capacity: room.capacity,
-                    location: room.location
-                  )
-                else
-                  status 422
-                  json(error: "Fail to create room.")
+                  m.failure do |message|
+                    status 500
+                    json({ errors: message })
+                  end
                 end
               end
             end

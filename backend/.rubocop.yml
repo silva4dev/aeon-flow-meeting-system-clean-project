@@ -3,7 +3,7 @@ require:
   - rubocop-performance
 
 AllCops:
-  TargetRubyVersion: 3.3.0
+  TargetRubyVersion: 3.2.1
   SuggestExtensions: false
   NewCops: enable
 

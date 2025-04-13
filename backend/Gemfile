@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.0'
+ruby '3.2.1'
 
 gem 'dry-struct'
 gem 'dry-types'
@@ -10,6 +10,7 @@ gem 'dry-validation'
 gem 'dry-container'
 gem 'dry-auto_inject'
 gem 'dry-monads'
+gem 'dry-matcher'
 gem 'puma'
 gem 'rake'
 gem 'rom'
@@ -19,6 +20,7 @@ gem 'sqlite3'
 gem 'sequel'
 gem 'uuid'
 gem 'hanami-api'
+gem 'namespace'
 
 group :development, :test do
   gem 'debug'

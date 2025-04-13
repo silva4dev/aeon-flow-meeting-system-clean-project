@@ -20,7 +20,6 @@ gem 'sqlite3'
 gem 'sequel'
 gem 'uuid'
 gem 'hanami-api'
-gem 'namespace'
 
 group :development, :test do
   gem 'debug'

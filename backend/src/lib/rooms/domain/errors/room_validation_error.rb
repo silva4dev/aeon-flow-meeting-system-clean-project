@@ -4,8 +4,11 @@ module Rooms
   module Domain
     module Errors
       class RoomValidationError < StandardError
-        def initialize(messages)
-          super("Room validation failed: #{messages}")
+        attr_reader :notification
+
+        def initialize(notification)
+          @notification = notification
+          super("Room validation failed: #{@notification.error_messages.join(', ')}")
         end
       end
     end

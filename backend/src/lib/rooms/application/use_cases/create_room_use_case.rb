@@ -5,7 +5,7 @@ require 'dry/matcher'
 require 'dry/matcher/result_matcher'
 
 require_relative '../../app_container'
-require_relative '../../../shared_domain/application/usecase'
+require_relative '../../../shared_domain/application/use_case'
 require_relative '../../domain/entities/room_entity'
 require_relative '../../domain/errors/room_validation_error'
 

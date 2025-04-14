@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../../lib/rooms/application/usecases/create_room_usecase'
+require_relative '../../../../lib/rooms/application/use_cases/create_room_use_case'
 
 module App
   module Routes

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../../../../../src/lib/rooms/app_container'
-require_relative '../../../../../src/lib/rooms/application/usecases/create_room_usecase'
+require_relative '../../../../../src/lib/rooms/application/use_cases/create_room_use_case'
 require_relative '../../../../../src/lib/rooms/domain/entities/room_entity'
 require_relative '../../../../../src/lib/rooms/application/repositories/room_repository'
 

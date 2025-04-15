@@ -10,6 +10,7 @@ module Rooms
       class SqliteRoomRepository < Rooms::Application::Repositories::RoomRepository
         def initialize
           @rom = Rooms::AppContainer.resolve('config.rom')
+          super
         end
 
         def add(entity)

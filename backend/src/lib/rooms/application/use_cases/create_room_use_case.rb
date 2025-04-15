@@ -18,6 +18,7 @@ module Rooms
 
         def initialize
           @room_repository = Rooms::AppContainer.resolve('rooms.room_repository')
+          super
         end
 
         def call(input_dto = {})

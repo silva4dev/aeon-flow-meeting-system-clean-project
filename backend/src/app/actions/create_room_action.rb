@@ -6,7 +6,7 @@ require_relative '../../lib/rooms/application/use_cases/create_room_use_case'
 module App
   module Actions
     class CreateRoomAction < SharedDomain::Web::Action
-      def call(params)
+      def call(params = {})
         input_dto = {
           name: params[:name],
           capacity: params[:capacity],

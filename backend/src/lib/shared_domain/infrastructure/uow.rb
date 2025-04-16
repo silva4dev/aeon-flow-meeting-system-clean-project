@@ -3,10 +3,7 @@
 module SharedDomain
   module Infrastructure
     class UnitOfWork
-      def initialize(rom_container)
-        @rom = rom_container
-        @transaction = nil
-      end
+      # Not Implement
     end
   end
 end

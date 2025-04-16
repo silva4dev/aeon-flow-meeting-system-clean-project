@@ -3,7 +3,9 @@
 module SharedDomain
   module Infrastructure
     class UnitOfWork
-      # Not Implement
+      def transaction(&_block)
+        raise NotImplementedError
+      end
     end
   end
 end

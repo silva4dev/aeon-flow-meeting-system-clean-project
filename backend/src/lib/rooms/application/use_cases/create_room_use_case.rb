@@ -23,7 +23,7 @@ module Rooms
         end
 
         def call(input_dto = {})
-          @unit_of_work.transaction(:rooms) do
+          @unit_of_work.transaction do
             room = Domain::Entities::Room.new(
               name: input_dto[:name],
               capacity: input_dto[:capacity],

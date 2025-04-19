@@ -9,14 +9,15 @@ module SharedDomain
         @rom = rom
       end
 
-      def transaction(relation_name, &)
-        @rom[relation_name].transaction do |t|
-          yield t
+      def transaction(relation_name = nil, &block)
+        gateway = relation_name ? @rom[relation_name] : @rom.container.gateways[:default]
+        gateway.transaction do |t|
+          yield t if block_given?
         rescue StandardError => e
           t.rollback!
           raise Errors::InvalidTransactionError, "Transaction error: #{e.message}"
         end
-        yield
+        yield if block_given?
       end
     end
   end

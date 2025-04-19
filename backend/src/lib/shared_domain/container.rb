@@ -2,7 +2,7 @@
 
 require 'dry-container'
 
-require_relative '../../database/config/rom'
+require_relative 'infrastructure/rom'
 require_relative '../shared_domain/infrastructure/unit_of_work'
 
 module SharedDomain
@@ -10,8 +10,11 @@ module SharedDomain
     extend Dry::Container::Mixin
 
     namespace :infrastructure do
-      register(:rom) { Database::Config::Rom.new }
-      register(:unit_of_work) { SharedDomain::Infrastructure::UnitOfWork.new(Database::Config::Rom.new) }
+      register(:rom) { SharedDomain::Infrastructure::Rom.new }
+      register(:unit_of_work) do
+        rom = SharedDomain::Infrastructure::Rom.new
+        SharedDomain::Infrastructure::UnitOfWork.new(rom)
+      end
     end
   end
 end

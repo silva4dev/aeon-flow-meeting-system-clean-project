@@ -5,8 +5,8 @@ require 'rom'
 require 'rom-sql'
 require 'rom-repository'
 
-module Database
-  module Config
+module SharedDomain
+  module Infrastructure
     class Rom
       attr_reader :container, :db
 
@@ -23,7 +23,7 @@ module Database
       private
 
       def setup_database
-        db_path = File.expand_path("../../database/database_#{@environment}.sqlite3", __dir__)
+        db_path = File.expand_path("../../../database/database_#{@environment}.sqlite3", __dir__)
         Sequel.sqlite(db_path)
       end
 

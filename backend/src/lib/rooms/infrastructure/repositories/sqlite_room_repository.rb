@@ -9,7 +9,7 @@ module Rooms
     module Repositories
       class SqliteRoomRepository < Rooms::Application::Repositories::RoomRepository
         def initialize
-          @rom = Rooms::AppContainer.resolve('config.rom')
+          @rom = Rooms::AppContainer.resolve('infrastructure.rom')
           super
         end
 

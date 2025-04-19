@@ -3,10 +3,16 @@
 module App
   module Interceptors
     class Cors
-      def self.call(headers)
-        headers['Access-Control-Allow-Origin'] = '*'
-        headers['Access-Control-Allow-Headers'] = '*'
-        headers['Access-Control-Allow-Methods'] = '*'
+      def initialize(app)
+        @app = app
+      end
+
+      def call(env)
+        status, headers, body = @app.call(env)
+        headers['access-control-allow-origin'] = '*'
+        headers['access-control-allow-headers'] = '*'
+        headers['access-control-allow-methods'] = '*'
+        [status, headers, body]
       end
     end
   end

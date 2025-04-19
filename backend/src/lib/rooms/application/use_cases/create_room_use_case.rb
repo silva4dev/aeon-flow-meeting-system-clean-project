@@ -17,20 +17,23 @@ module Rooms
         include Dry::Matcher.for(:call, with: Dry::Matcher::ResultMatcher)
 
         def initialize
-          @room_repository = Rooms::AppContainer.resolve('rooms.room_repository')
+          @room_repository = Rooms::AppContainer.resolve('rooms.infrastructure.room_repository')
+          @unit_of_work = Rooms::AppContainer.resolve('infrastructure.unit_of_work')
           super
         end
 
         def call(input_dto = {})
-          room = Domain::Entities::Room.new(
-            name: input_dto[:name],
-            capacity: input_dto[:capacity],
-            location: input_dto[:location]
-          )
+          @unit_of_work.transaction(:rooms) do
+            room = Domain::Entities::Room.new(
+              name: input_dto[:name],
+              capacity: input_dto[:capacity],
+              location: input_dto[:location]
+            )
 
-          @room_repository.add(room)
+            @room_repository.add(room)
 
-          Success(room)
+            Success(room)
+          end
         rescue Rooms::Domain::Errors::RoomValidationError => e
           Failure(
             status: :unprocessable_entity,

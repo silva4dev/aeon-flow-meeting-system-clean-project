@@ -19,7 +19,7 @@ RSpec.describe Rooms::Application::UseCases::CreateRoomUseCase do
   describe '#call' do
     context 'with valid input data' do
       before do
-        allow(unit_of_work).to receive(:transaction).with(:rooms).and_yield
+        allow(unit_of_work).to receive(:transaction).and_yield
         allow(room_repository).to receive(:add).with(instance_of(Rooms::Domain::Entities::Room))
       end
 

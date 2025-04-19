@@ -14,8 +14,8 @@ module SharedDomain
 
         def initialize(attributes = {})
           attributes[:value] ||= UUID.new.generate
-          super(attributes)
           raise Errors::InvalidUuidError.new('Invalid UUID format') unless valid_uuid?(value)
+          super(attributes)
         end
 
         private

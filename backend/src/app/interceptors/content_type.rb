@@ -11,7 +11,7 @@ module App
         status, headers, body = @app.call(env)
         return [status, headers, body] if body.first.nil?
 
-        headers['Content-Type'] = 'application/json'
+        headers['Content-Type'] = 'application/json' unless headers['Content-Type']
         [status, headers, body]
       end
     end

@@ -9,7 +9,7 @@ module App
 
       def call(env)
         status, headers, body = @app.call(env)
-        headers['Accept'] = 'application/json'
+        headers['Accept'] = 'application/json' unless headers['Accept']
         [status, headers, body]
       end
     end

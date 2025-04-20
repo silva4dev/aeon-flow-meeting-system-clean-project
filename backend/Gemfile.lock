@@ -3,6 +3,7 @@ GEM
   specs:
     ast (2.4.3)
     bigdecimal (3.1.9)
+    cgi (0.3.6)
     concurrent-ruby (1.3.5)
     date (3.4.1)
     debug (1.10.0)
@@ -60,6 +61,8 @@ GEM
       dry-initializer (~> 3.2)
       dry-schema (~> 1.14)
       zeitwerk (~> 2.6)
+    erb (4.0.2)
+      cgi (>= 0.3.3)
     hanami-api (0.3.0)
       hanami-router (~> 2.0)
     hanami-router (2.2.0)
@@ -182,6 +185,7 @@ GEM
     sqlite3 (2.6.0-x86_64-linux-gnu)
     sqlite3 (2.6.0-x86_64-linux-musl)
     stringio (3.1.6)
+    swagger-blocks (3.0.0)
     systemu (2.6.5)
     transproc (1.1.1)
     unicode-display_width (3.1.4)
@@ -212,6 +216,7 @@ DEPENDENCIES
   dry-struct
   dry-types
   dry-validation
+  erb
   hanami-api
   puma
   rake
@@ -224,6 +229,7 @@ DEPENDENCIES
   rubocop-rspec
   sequel
   sqlite3
+  swagger-blocks
   uuid
 
 RUBY VERSION

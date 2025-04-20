@@ -9,9 +9,9 @@ module App
 
       def call(env)
         status, headers, body = @app.call(env)
-        headers['access-control-allow-origin'] = '*'
-        headers['access-control-allow-headers'] = '*'
-        headers['access-control-allow-methods'] = '*'
+        headers['access-control-allow-origin'] = '*' unless headers['access-control-allow-origin']
+        headers['access-control-allow-headers'] = '*' unless headers['access-control-allow-headers']
+        headers['access-control-allow-methods'] = '*' unless headers['access-control-allow-methods']
         [status, headers, body]
       end
     end

@@ -4,7 +4,12 @@ require 'sequel'
 require 'fileutils'
 
 environment = ENV['ENVIRONMENT'] || 'development'
-DB_PATH = "./src/database/database_#{environment}.sqlite3"
+DB_DIR = File.expand_path('./src/database')
+DB_PATH = File.join(DB_DIR, "database_#{environment}.sqlite3")
+
+FileUtils.mkdir_p(DB_DIR)
+FileUtils.chmod(0755, DB_DIR) unless File.stat(DB_DIR).mode.to_s(8)[-3..-1] == '755'
+
 DB = Sequel.sqlite(DB_PATH)
 
 namespace :db do
@@ -14,6 +19,7 @@ namespace :db do
       puts "Database already exists at #{DB_PATH}"
     else
       FileUtils.touch(DB_PATH)
+      FileUtils.chmod(0644, DB_PATH)
       puts "Database created at #{DB_PATH}"
     end
   end
@@ -32,8 +38,8 @@ namespace :db do
   task :migrate do
     Sequel.extension :migration
     Sequel::Migrator.run(DB, './src/database/migrations')
-    puts "Migrations ran successfully."
-    Rake::Task["db:generate_schema"].invoke
+    puts 'Migrations ran successfully.'
+    Rake::Task['db:generate_schema'].invoke
   end
 
   desc 'Create a new migration with a version number'
@@ -68,7 +74,7 @@ namespace :db do
   task :rollback do
     Sequel.extension :migration
     Sequel::Migrator.run(DB, './src/database/migrations', target: DB.tables.size - 1)
-    puts "Last migration rolled back."
+    puts 'Last migration rolled back.'
     Rake::Task["db:generate_schema"].invoke
   end
 
@@ -83,8 +89,8 @@ namespace :db do
           column_type = column_details[:db_type]
           file.puts "  #{column_name} #{column_type},"
         end
-        file.puts ");"
-        file.puts ""
+        file.puts ');'
+        file.puts ''
       end
     end
     puts "Schema generated at #{schema_path}"
@@ -100,4 +106,19 @@ namespace :db do
       puts 'No seed file found.'
     end
   end
+
+  desc 'Ensure proper database permissions'
+  task :ensure_permissions do
+    unless File.writable?(DB_DIR)
+      puts "Setting correct permissions for #{DB_DIR}"
+      FileUtils.chmod(0755, DB_DIR)
+    end
+
+    if File.exist?(DB_PATH) && !File.writable?(DB_PATH)
+      puts "Setting correct permissions for #{DB_PATH}"
+      FileUtils.chmod(0644, DB_PATH)
+    end
+  end
 end
+
+Rake::Task['db:ensure_permissions'].invoke

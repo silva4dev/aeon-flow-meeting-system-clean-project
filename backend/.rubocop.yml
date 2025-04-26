@@ -31,32 +31,6 @@ Metrics/AbcSize:
 Naming/PredicateName:
   Enabled: false
 
-RSpec:
-  SpecFilePathFormat:
-    Enabled: true
-  SpecFilePathSuffix:
-    Enabled: true
-  ExampleLength:
-    Enabled: false
-  ExampleWording:
-    Enabled: false
-  MultipleExpectations:
-    Enabled: false
-  NoExpectationExample:
-    Enabled: false
-  BeforeAfterAll:
-    Enabled: false
-  EmptyExampleGroup:
-    Enabled: false
-  HookArgument:
-    Enabled: false
-  RepeatedExample:
-    Enabled: false
-  LeakyConstantDeclaration:
-    Enabled: false
-  InstanceVariable:
-    Enabled: false
-
 Naming/FileName:
   Enabled: false
 
@@ -85,4 +59,25 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/PerceivedComplexity:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/SpecFilePathFormat:
+  Enabled: false
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
   Enabled: false

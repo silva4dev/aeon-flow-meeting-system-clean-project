@@ -3,7 +3,7 @@
 require_relative '../../../src/lib/shared_domain/container'
 
 RSpec.describe SharedDomain::Container do
-  subject(:sut) { SharedDomain::Container }
+  subject(:sut) { described_class }
 
   it 'extends Dry::Container module' do
     expect(sut).to be_a(Dry::Container::Mixin)

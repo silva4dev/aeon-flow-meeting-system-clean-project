@@ -3,7 +3,7 @@
 require_relative '../../../../src/lib/shared_domain/application/use_case'
 
 RSpec.describe SharedDomain::Application::UseCase do
-  before(:all) do
+  before do
     class UseCaseFake < SharedDomain::Application::UseCase
       def call(success: true)
         success ? Dry::Monads::Success('Operation was successful') : Dry::Monads::Failure('Operation failed')

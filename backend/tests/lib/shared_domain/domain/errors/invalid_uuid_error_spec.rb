@@ -6,7 +6,7 @@ RSpec.describe SharedDomain::Domain::Errors::InvalidUuidError do
   describe '#initialize' do
     context 'when initialized with a custom message' do
       it 'sets the message correctly' do
-        error_message = "Custom error message"
+        error_message = 'Custom error message'
         sut = described_class.new(error_message)
 
         expect(sut.message).to eq(error_message)
@@ -15,9 +15,9 @@ RSpec.describe SharedDomain::Domain::Errors::InvalidUuidError do
 
     context 'when initialized with a default message' do
       it 'sets the message correctly' do
-        sut = described_class.new("Some error message")
+        sut = described_class.new('Some error message')
 
-        expect(sut.message).to eq("Some error message")
+        expect(sut.message).to eq('Some error message')
       end
     end
   end

@@ -9,13 +9,12 @@ RSpec.describe Rooms::Infrastructure::Repositories::SqliteRoomRepository do
   let(:repository) { described_class.new }
 
   before do
-    DB.tables.each { |table| DB.drop_table?(table) }
-
+    rom.db[:rooms].truncate
     allow(Rooms::AppContainer).to receive(:resolve).with('infrastructure.rom').and_return(rom)
   end
 
   after do
-    DB.disconnect
+    rom.container.disconnect
   end
 
   describe '#add' do

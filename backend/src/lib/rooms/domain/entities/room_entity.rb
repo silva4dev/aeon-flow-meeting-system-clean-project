@@ -15,8 +15,8 @@ module Rooms
 
         extend(Module.new do
           def new(attributes)
-            notification = Rooms::Domain::Validations::RoomValidation.new.validate_attributes(attributes)
-            raise Rooms::Domain::Errors::RoomValidationError, notification if notification.has_errors?
+            validation = Rooms::Domain::Validations::RoomValidation.new.validate_attributes(attributes)
+            raise Rooms::Domain::Errors::RoomValidationError, validation if validation.has_errors?
 
             super
           end

@@ -7,9 +7,7 @@ require 'fileutils'
 ENV['ENVIRONMENT'] ||= 'test'
 
 DB_DIR = File.expand_path('../../src/database', __dir__)
-DB_PATH = File.join(DB_DIR, 'database_test.sqlite3')
-
-DB = Sequel.connect("sqlite://#{DB_PATH}")
+FileUtils.chmod(0777, DB_DIR) if File.exist?(DB_DIR)
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

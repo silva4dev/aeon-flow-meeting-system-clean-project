@@ -1,0 +1,24 @@
+AllCops:
+  Include:
+    - 'tests/**/*.rb'
+
+plugins:
+  - rubocop-rspec
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/SpecFilePathFormat:
+  Enabled: false
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false

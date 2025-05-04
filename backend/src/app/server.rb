@@ -15,6 +15,10 @@ module App
       redirect '/api-docs/'
     end
 
+    get '/api-docs' do
+      redirect '/api-docs/'
+    end
+
     get '/api-docs/' do
       headers['Content-Type'] = 'text/html'
       path = File.expand_path('index.html.erb', './src/app/docs')

@@ -1,11 +1,9 @@
-plugins:
-  - rubocop-rspec
-  - rubocop-performance
-
 AllCops:
-  TargetRubyVersion: 3.2.1
-  SuggestExtensions: false
-  NewCops: enable
+  Include:
+    - 'src/**/*.rb'
+
+plugins:
+  - rubocop-performance
 
 Style/FrozenStringLiteralComment:
   Enabled: true
@@ -62,22 +60,4 @@ Metrics/PerceivedComplexity:
   Enabled: false
 
 Layout/FirstHashElementIndentation:
-  Enabled: false
-
-RSpec/ExampleLength:
-  Enabled: false
-
-RSpec/EmptyExampleGroup:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/SpecFilePathFormat:
-  Enabled: false
-
-RSpec/LeakyConstantDeclaration:
-  Enabled: false
-
-RSpec/BeforeAfterAll:
   Enabled: false

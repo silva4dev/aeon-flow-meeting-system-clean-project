@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require 'dotenv'
+
+Dotenv.load!('.env.dev')
+
+guard :puma, port: ENV['PORT'] do
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch(%r{^config.ru$})
+  watch(%r{^src/.*\.rb$})
+  ignore(%r{^tests$})
+end

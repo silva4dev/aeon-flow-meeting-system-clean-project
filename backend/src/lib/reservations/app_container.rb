@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'dry-auto_inject'
+
 require_relative '../shared_domain/container'
 
 module Reservations

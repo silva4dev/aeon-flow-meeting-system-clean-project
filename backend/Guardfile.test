@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+require 'dotenv'
+
+Dotenv.load!('.env.test')
+
+guard :rspec, cmd: 'bundle exec rspec', all_on_start: true do
+  watch(%r{^tests/.+_spec\.rb$})
+end

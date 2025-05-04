@@ -1,0 +1,9 @@
+inherit_from:
+  - .rubocop_dev.yml
+  - .rubocop_test.yml
+
+AllCops:
+  TargetRubyVersion: 3.2.1
+  SuggestExtensions: false
+  NewCops: enable
+  DisabledByDefault: true

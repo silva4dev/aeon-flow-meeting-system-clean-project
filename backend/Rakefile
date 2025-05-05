@@ -3,7 +3,9 @@
 require 'sequel'
 require 'fileutils'
 
-environment = ENV['ENVIRONMENT'] || 'development'
+require_relative 'src/app/initializers/environment'
+
+environment = ENV['ENVIRONMENT']
 DB_DIR = File.expand_path('./src/database')
 DB_PATH = File.join(DB_DIR, "database_#{environment}.sqlite3")
 

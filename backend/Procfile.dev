@@ -1,0 +1,1 @@
+server: bundle exec guard -G Guardfile.dev --no-interactions

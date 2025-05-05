@@ -2,6 +2,7 @@
 
 require 'erb'
 
+require_relative 'initializers/environment'
 require_relative 'docs/swagger_docs'
 require_relative 'routes/api/v1/rooms_routes'
 

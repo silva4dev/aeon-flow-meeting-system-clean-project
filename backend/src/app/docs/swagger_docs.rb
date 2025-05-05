@@ -2,6 +2,8 @@
 
 require 'swagger/blocks'
 
+require_relative '../initializers/environment'
+
 module App
   module Docs
     module SwaggerDocs
@@ -73,7 +75,7 @@ module App
         end
 
         server do
-          key :url, 'http://localhost:9292'
+          key :url, "http://localhost:#{ENV['PORT']}"
         end
       end
 

@@ -1,0 +1,1 @@
+test: bundle exec guard -G Guardfile.test --no-interactions

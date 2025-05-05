@@ -1,6 +1,6 @@
 inherit_from:
-  - .rubocop_dev.yml
-  - .rubocop_test.yml
+  - .rubocop.dev.yml
+  - .rubocop.test.yml
 
 AllCops:
   TargetRubyVersion: 3.2.1

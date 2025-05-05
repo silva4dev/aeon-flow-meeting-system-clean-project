@@ -25,6 +25,10 @@ gem 'uuid'
 
 group :development, :test do
   gem 'debug'
+  gem 'dotenv'
+  gem 'guard'
+  gem 'guard-puma'
+  gem 'guard-rspec'
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-performance'

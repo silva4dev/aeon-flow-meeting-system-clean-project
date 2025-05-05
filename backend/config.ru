@@ -5,6 +5,7 @@ require 'debug'
 require 'hanami/api'
 require 'hanami/middleware/body_parser'
 
+require_relative 'src/app/initializers/environment'
 require_relative 'src/app/server'
 require_relative 'src/app/interceptors/cors'
 require_relative 'src/app/interceptors/content_type'

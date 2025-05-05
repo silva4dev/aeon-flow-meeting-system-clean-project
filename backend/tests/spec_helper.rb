@@ -4,7 +4,7 @@ require 'bundler/setup'
 require 'sequel'
 require 'fileutils'
 
-ENV['ENVIRONMENT'] ||= 'test'
+require_relative '../src/app/initializers/environment'
 
 DB_DIR = File.expand_path('../../src/database', __dir__)
 FileUtils.chmod(0777, DB_DIR) if File.exist?(DB_DIR)

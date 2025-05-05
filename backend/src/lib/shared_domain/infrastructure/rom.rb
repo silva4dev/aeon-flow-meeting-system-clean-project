@@ -5,12 +5,14 @@ require 'rom'
 require 'rom-sql'
 require 'rom-repository'
 
+require_relative '../../../app/initializers/environment'
+
 module SharedDomain
   module Infrastructure
     class Rom
       attr_reader :container, :db
 
-      def initialize(environment: ENV['ENVIRONMENT'] || 'development')
+      def initialize(environment: ENV['ENVIRONMENT'])
         @environment = environment
         @db = setup_database
         @container = setup_rom
